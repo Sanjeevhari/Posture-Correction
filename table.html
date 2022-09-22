@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>Student mark sheet</title>
+<style>
+input{
+width:300px;
+height:40;
+margin-right:30px;
+}
+table input{
+border:transparent;
+}
+table,p{
+margin-left:150px;
+}
+td{
+padding:10px;
+}
+</style>
+</head>
+<script>
+var row=1;
+function displaydetails()
+{
+var name=document.getElementById("name").value;
+var r=document.getElementById("reg").value;
+var mark1=parseInt(document.getElementById("mark1").value);
+var mark2=parseInt(document.getElementById("mark2").value);
+var mark3=parseInt(document.getElementById("mark3").value);
+var mark4=parseInt(document.getElementById("mark4").value);
+var mark5=parseInt(document.getElementById("mark5").value);
+var mark6=parseInt(document.getElementById("mark6").value);
+if(!name ||!mark1 ||!mark2 ||!mark3 ||!mark4 ||!mark5 ||!mark6 ||!r)
+{
+alert("Please fill the all the inputs");
+return;
+}
+let sum=parseInt(mark1)+parseInt(mark2)+parseInt(mark3)+parseInt(mark4)+parseInt(mark5)+parseInt(mark6);
+let avg=parseInt(sum)/6;
+if(parseInt(mark1)>50 && parseInt(mark2)>50 && parseInt(mark3)>50 &&
+parseInt(mark4)>50 && parseInt(mark5)>50 &&
+parseInt(mark6)>50&&parseInt(avg)>50)
+{
+var found="Pass"
+}
+else{
+var found="Fail"
+}
+var table1=document.getElementById('tab1');
+var nrow=table1.insertRow(row);
+var cell1=nrow.insertCell(0);
+var cell2=nrow.insertCell(1);
+var cell3=nrow.insertCell(2);
+var cell4=nrow.insertCell(3)
+var cell5=nrow.insertCell(4);
+var cell6=nrow.insertCell(5);
+var cell7=nrow.insertCell(6);
+var cell8=nrow.insertCell(7);
+var cell9=nrow.insertCell(8);
+var cell10=nrow.insertCell(9);
+var cell11=nrow.insertCell(10);
+var cell12=nrow.insertCell(11);
+cell1.innerHTML=row;
+cell2.innerHTML=name;
+cell3.innerHTML=r;
+cell4.innerHTML=mark1;
+cell5.innerHTML=mark2;
+cell6.innerHTML=mark3;
+cell7.innerHTML=mark4;
+cell8.innerHTML=mark5;
+cell9.innerHTML=mark6;
+cell10.innerHTML=sum;
+cell11.innerHTML=avg;
+cell12.innerHTML=found;
+row++;
+}
+</script>
+<body><h1 style="text-align: center;font-family:sans-serif,Arial, Helvetica">STUDENT REPORT GENERATION SYSTEM </h1>
+<div style="font-size:18;font-family: sans-serif,Arial, Helvetica;float:inline_block;margin-left:10%;margin-right:7%;border:2px solid black;padding:3%;" class="div1">
+<label for="name">Enter your name: </label>
+<input type="text" id="name">
+<label for="reg">Enter your Register number: </label>
+<input type="text" id="reg">
+<br><br><br>
+<label for="mark1">Enter your subject1 mark: </label>
+<input type="text" id="mark1">
+<label for="mark2">Enter your subject2 mark: </label>
+<input type="text" id="mark2">
+<br><br><br>
+<label for="mark3">Enter your subject3 mark: </label>
+<input type="text" id="mark3">
+<label for="mark4">Enter your subject4 mark: </label>
+<input type="text" id="mark4">
+<br><br><br>
+<label for="mark5">Enter your subject5 mark: </label>
+<input type="text" id="mark5">
+<label for="mark6">Enter your subject6 mark: </label>
+<input type="text" id="mark6">
+<br><br>
+<br><br>
+<center>
+<button id="btn1" style="font-size:20;" onclick="displaydetails()">Save</button></center>
+</div>
+<div class="div2" style="margin:0;padding:0;" name="div1">
+<br>
+<p>REPORT TABLE:</p>
+<br>
+<table border="1" id="tab1">
+<tr>
+<td>S.NO</td>
+<td>NAME</td>
+<td>REGISTER NO</td>
+<td>SUB-1-MARK</td>
+<td>SUB-2-MARK</td>
+<td>SUB-3-MARK</td>
+<td>SUB-4-MARK</td>
+<td>SUB-5-MARK</td>
+<td>SUB-6-MARK</td>
+<td>TOTAL-MARK</td>
+<td>AVERAGE</td>
+<td>RESULT</td>
+</tr>
+</table>
+</div>
+</body>
+</html>
